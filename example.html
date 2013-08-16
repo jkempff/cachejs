@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>cache.js</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <!--<script src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>-->
+        <script type="text/javascript" src="cache.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <h1 id="title">cachejs</h1>
+        </header>
+        <section>
+            <small>Type your name</small>
+            <input name="my_name" value="">
+            <small>and reload the browser</small>
+        </section>
+        <script>
+            (function($){
+                Cache.nojson();
+                var cachedName = Cache('my_name').remember();
+                if(Cache('my_name').remember()){
+                    $('input').val(cachedName);
+                    $('section').html('<p>Hello <strong>' + cachedName + '</strong>, how are you?</p><input type="submit" value="Reset" />');
+
+                    $('input').click(function(){
+                        Cache('my_name').forget();
+                        window.location.reload();
+                    });
+                }
+
+                $('input').keyup(function(){
+                    var val= $(this).val();
+                    Cache('my_name').memorize(val);
+                });
+
+            })(jQuery);
+        </script>
+    </body>
+</html>
