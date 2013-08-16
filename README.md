@@ -3,7 +3,7 @@ Cache.js
 
 A client side storage abstraction.
 
-Uses `localStorage` by default, fallbacks to jQuery.cookie, if available.
+Uses `localStorage` by default, fallbacks to [jQuery.cookie](https://github.com/carhartl/jquery-cookie), if available.
 
 ### Usage
 
