@@ -100,7 +100,7 @@ var Cache = (function (window, undefined) {
         if (useJSON) {
             try {
                 return JSON.parse(data);
-            } catch (ignore) {}
+            } catch (ignore) {}
         }
         return data;
     }
